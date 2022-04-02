@@ -1,5 +1,3 @@
-
-
 name: CI-CD
 
 on:
@@ -31,11 +29,16 @@ jobs:
             yurilacerda/rotten-potatosyuri:${{ github.run_number}}
             
   CD:
-   - name: Kubernetes Set Context
-     uses: Azure/k8s-set-context@v2
-     with:
-      method: kubeconfig
-      kubeconfig: ${{ secrets.K8S_KUBECONFIG }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/ckeckout@v2
+      
+      - name: Kubernetes Set Context
+        uses: Azure/k8s-set-context@v2
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.K8S_KUBECONFIG }}
   
 
 
