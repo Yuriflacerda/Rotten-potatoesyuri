@@ -46,7 +46,7 @@ jobs:
         with:
           images: yurilacerda/rotten-potatosyuri:${{ github.run_number}}
           manifests: |
-            k8s/deplpyment.yaml
+            k8s/deployment.yaml
   
 
 
